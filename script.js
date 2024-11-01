@@ -12,14 +12,23 @@ function Book(title, author, pages, read){
     }
 }
 
-function addBookToLibrary(newTitle, newAuthor, newPages, newRead){
+function addBookToLibrary(book){
     let newBook = {
-        title: newTitle,
-        author: newAuthor,
-        pages: newPages,
-        read: newRead
+        title: book.title,
+        author: book.author,
+        pages: book.pages,
+        read: book.read
     }
     myLibrary.push(newBook);
+}
+
+const theHobbit = new Book('Hobbit', 'Tolkien', '100', 'yes');
+console.log(theHobbit.info());
+addBookToLibrary(theHobbit);
+
+
+for(let i = 0; i < myLibrary.length; i++){
+    console.log(myLibrary[i]);
 }
 
 }
