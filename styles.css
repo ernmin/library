@@ -7,7 +7,7 @@
     border-radius: 10px;
     z-index: 10;
     background-color: white;
-    width: 500px;
+    width: 400px;
     max-width: 80%;
 }
 
@@ -30,9 +30,46 @@
 
 .window-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
     padding: 10px 15px;
     gap: 20px;
 
+}
+
+.title-author {
+    grid-row: 1 / 2;
+}
+
+.title-author > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.pages-read {
+    display: flex;
+}
+
+input {
+    max-width: 80%;
+}
+
+.title-author input {
+    max-width: 100%;
+}
+
+#overlay-bg {
+    position: fixed;
+    /*opacity: 0;*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+#overlay-bg .bg-active {
+    opacity: 1;
+    pointer-events: all;
 }
