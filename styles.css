@@ -31,10 +31,9 @@
 .window-body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
     padding: 10px 15px;
-    gap: 20px;
-
+    gap: 15px;
 }
 
 .title-author {
@@ -52,6 +51,9 @@
 
 input {
     max-width: 80%;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .title-author input {
