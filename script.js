@@ -1,3 +1,33 @@
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const overlay = document.getElementById('overlay-bg');
+
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal);
+    })
+})
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () =>{
+        const modal = button.closest('.window');
+        closeModal(modal);
+    })
+})
+
+function openModal(modal) {
+    if (modal == null) return;
+    modal.classList.add('bg-active');
+    overlay.classList.add('bg-active');
+}
+
+function closeModal(modal) {
+    if (modal == null) return;
+    modal.classList.remove('bg-active');
+    overlay.classList.remove('bg-active');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 const myLibrary = [];
 
