@@ -28,7 +28,6 @@ function closeModal(modal) {
     overlay.classList.remove('bg-active');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
 const myLibrary = [];
 
 function Book(title, author, pages, read){
@@ -53,15 +52,24 @@ function addBookToLibrary(book){
 }
 
 const theHobbit = new Book('Hobbit', 'Tolkien', '100', 'yes');
+const chess = new Book('Chess', 'Levy', '300', 'yes');
 console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
-
+addBookToLibrary(chess);
 
 for(let i = 0; i < myLibrary.length; i++){
     console.log(myLibrary[i]);
+    createCard(myLibrary[i]);
 }
 
+function createCard(bookObject) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(bookObject.title));
+    card.appendChild(div);
+    document.getElementById('books').appendChild(card);
 }
-)
+
 
 /*geeksforgeeks.org/how-to-create-an-html-table-from-an-object-array-using-javascript/ */
