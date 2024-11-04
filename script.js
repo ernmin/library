@@ -63,3 +63,5 @@ for(let i = 0; i < myLibrary.length; i++){
 
 }
 )
+
+/*geeksforgeeks.org/how-to-create-an-html-table-from-an-object-array-using-javascript/ */
