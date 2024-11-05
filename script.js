@@ -64,7 +64,7 @@ for(let i = 0; i < myLibrary.length; i++){
 
 function createCard(bookObject) {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('book-card');
     const div = document.createElement('div');
     div.appendChild(document.createTextNode(bookObject.title));
     card.appendChild(div);
