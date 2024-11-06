@@ -51,8 +51,8 @@ function addBookToLibrary(book){
     myLibrary.push(newBook);
 }
 
-const theHobbit = new Book('Hobbit', 'Tolkien', '100', 'yes');
-const chess = new Book('Chess', 'Levy', '300', 'yes');
+const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'yes');
+const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'yes');
 console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
@@ -68,30 +68,30 @@ function createCard(bookObject) {
     const div1 = document.createElement('div');
     div1.appendChild(document.createTextNode(bookObject.title));
     card.appendChild(div1);
+    let items = [];
+    const div2 = document.createElement('div');
+    card.appendChild(div2);
 
-    /*for (const property in bookObject) {
-        let items = [];
-        items.push(property);
-        for (let i = 0; i < items.length; i++){
-            let div = document.createElement('div');
-            div.appendChild(document.createTextNode(items[i]));
-            card.appendChild(div);
+    for (const property in bookObject) {
+        items.push(bookObject[property]);   
+    }
+    for (let i = 1; i < items.length; i++){
+        let div = document.createElement('div');
+        div.appendChild(document.createTextNode(items[i]));
+        div2.appendChild(div);
+        if (i == 1){
+            div.classList.add('card-author');
         }
-        
-    }*/
-    
-    /*const div2 = document.createElement('div');
-    const div3 = document.createElement('div');
-    const div4 = document.createElement('div');*/
-    
-    /*div2.appendChild(document.createTextNode(bookObject.author));
-    div3.appendChild(document.createTextNode(bookObject.pages));
-    div4.appendChild(document.createTextNode(bookObject.read));*/
-    
-    /*card.appendChild(div2);
-    card.appendChild(div3);
-    card.appendChild(div4);*/
+        else if (i == 2){
+            div.classList.add('card-pages');
+        }
+        else if (i == 3){
+            div.classList.add('card-read');
+        }
+    }
     div1.classList.add('card-title');
+    div2.classList.add('card-others');
+    
     document.getElementById('books').appendChild(card);
 }
 
