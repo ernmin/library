@@ -65,11 +65,35 @@ for(let i = 0; i < myLibrary.length; i++){
 function createCard(bookObject) {
     const card = document.createElement('div');
     card.classList.add('book-card');
-    const div = document.createElement('div');
-    div.appendChild(document.createTextNode(bookObject.title));
-    card.appendChild(div);
+    const div1 = document.createElement('div');
+    div1.appendChild(document.createTextNode(bookObject.title));
+    card.appendChild(div1);
+
+    /*for (const property in bookObject) {
+        let items = [];
+        items.push(property);
+        for (let i = 0; i < items.length; i++){
+            let div = document.createElement('div');
+            div.appendChild(document.createTextNode(items[i]));
+            card.appendChild(div);
+        }
+        
+    }*/
+    
+    /*const div2 = document.createElement('div');
+    const div3 = document.createElement('div');
+    const div4 = document.createElement('div');*/
+    
+    /*div2.appendChild(document.createTextNode(bookObject.author));
+    div3.appendChild(document.createTextNode(bookObject.pages));
+    div4.appendChild(document.createTextNode(bookObject.read));*/
+    
+    /*card.appendChild(div2);
+    card.appendChild(div3);
+    card.appendChild(div4);*/
+    div1.classList.add('card-title');
     document.getElementById('books').appendChild(card);
 }
 
-
-/*geeksforgeeks.org/how-to-create-an-html-table-from-an-object-array-using-javascript/ */
+/*create event listener to listen to submit button
+store form data into the array of objects*/
