@@ -96,19 +96,32 @@ function createCard(bookObject, book_id) {
     div2.classList.add('card-others');
     
     document.getElementById('books').appendChild(card);
+    deleteBook(book_id);
     addCheckbox(book_id);
 }
 
 function addCheckbox(book_id){
     const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
     const card_read = card.querySelector('.card-read');
+    const conquered_container = document.createElement('div');
     const create_text_read = document.createElement('div');
     /*create_text_read.classList.add('create-text-read');*/
-    create_text_read.appendChild(document.createTextNode('Conquered'));
+    conquered_container.appendChild(document.createTextNode('Conquered'));
     card_read.appendChild(create_text_read);
     const create_check_box = document.createElement("INPUT");
     create_check_box.setAttribute("type", "checkbox");
-    card_read.appendChild(create_check_box);
+    conquered_container.appendChild(create_check_box);
+    card_read.appendChild(conquered_container);
+    conquered_container.classList.add('conquered-container');
+}
+
+function deleteBook(book_id){
+    const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
+    const card_read = card.querySelector('.card-read');
+    const create_button = document.createElement('button');
+    create_button.classList.add('banish');
+    create_button.textContent = 'Banish';
+    card_read.appendChild(create_button);
 }
 
 /*create event listener to listen to submit button

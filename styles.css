@@ -162,14 +162,30 @@ input {
     align-self: end;
     justify-self: right;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+    gap: 5px;
+}
+
+.conquered-container {
+    display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 input[type="checkbox"] {
     height: 20px;
     width: 20px;
+}
+
+.banish {
+    height: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(8, 113, 235);
+    color: white;
+    width: 90%;
 }
 
 @media (min-width: 600px){
@@ -191,16 +207,20 @@ input[type="checkbox"] {
     }
 
     .card-title {
-    font-size: 4rem;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    text-wrap: balance;
-    height: 60%;
-    line-height: 70px;
+        font-size: 4rem;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        text-wrap: balance;
+        height: 60%;
+        line-height: 70px;
     }
     
     .card-others {
         font-size: 1.5rem;
+    }
+
+    .banish {
+        height: 2.5rem;
     }
 
 }
