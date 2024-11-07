@@ -51,18 +51,18 @@ function addBookToLibrary(book){
     myLibrary.push(newBook);
 }
 
-const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'yes');
-const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'yes');
+const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
+const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'true');
 console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
 
 for(let i = 0; i < myLibrary.length; i++){
     console.log(myLibrary[i]);
-    createCard(myLibrary[i]);
+    createCard(myLibrary[i], i);
 }
 
-function createCard(bookObject) {
+function createCard(bookObject, book_id) {
     const card = document.createElement('div');
     card.classList.add('book-card');
     const div1 = document.createElement('div');
@@ -77,7 +77,9 @@ function createCard(bookObject) {
     }
     for (let i = 1; i < items.length; i++){
         let div = document.createElement('div');
-        div.appendChild(document.createTextNode(items[i]));
+        if (i != 3){
+            div.appendChild(document.createTextNode(items[i]));
+        }
         div2.appendChild(div);
         if (i == 1){
             div.classList.add('card-author');
@@ -90,10 +92,25 @@ function createCard(bookObject) {
         }
     }
     div1.classList.add('card-title');
+    card.id = book_id;
     div2.classList.add('card-others');
     
     document.getElementById('books').appendChild(card);
+    addCheckbox(book_id);
+}
+
+function addCheckbox(book_id){
+    const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
+    const card_read = card.querySelector('.card-read');
+    const create_check_box = document.createElement("INPUT");
+    create_check_box.setAttribute("type", "checkbox");
+    card_read.appendChild(create_check_box);
 }
 
 /*create event listener to listen to submit button
 store form data into the array of objects*/
+
+/*https://www.w3schools.com/jsref/dom_obj_checkbox.asp
+https://bito.ai/resources/javascript-set-checkbox-checked-javascript-explained/
+Use book ID to change if read or not read
+*/

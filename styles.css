@@ -135,9 +135,7 @@ input {
     font-size: 2rem;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    text-wrap: balance;
-    height: 60%;
-    line-height: 70px;
+    
 }
 
 .card-others {
@@ -158,6 +156,16 @@ input {
     align-self: end;
 }
 
+.card-read {
+    padding-right: 20px;
+    align-self: end;
+    justify-self: right;
+}
+
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+}
 
 @media (min-width: 600px){
     .books{
@@ -181,6 +189,9 @@ input {
     font-size: 4rem;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    text-wrap: balance;
+    height: 60%;
+    line-height: 70px;
 }
     
 }
