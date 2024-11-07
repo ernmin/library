@@ -102,6 +102,10 @@ function createCard(bookObject, book_id) {
 function addCheckbox(book_id){
     const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
     const card_read = card.querySelector('.card-read');
+    const create_text_read = document.createElement('div');
+    /*create_text_read.classList.add('create-text-read');*/
+    create_text_read.appendChild(document.createTextNode('Conquered'));
+    card_read.appendChild(create_text_read);
     const create_check_box = document.createElement("INPUT");
     create_check_box.setAttribute("type", "checkbox");
     card_read.appendChild(create_check_box);
