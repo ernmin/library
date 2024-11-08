@@ -191,9 +191,9 @@ input[type="checkbox"] {
 @media (min-width: 1400px){
     .books{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-left: 300px;
-        margin-right: 300px;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 200px;
+        margin-right: 200px;
     }
     .book-card {
         height: 600px;
@@ -207,7 +207,7 @@ input[type="checkbox"] {
     }
 
     .card-title {
-        font-size: 4rem;
+        font-size: 2rem;
         font-family: 'Times New Roman', Times, serif;
         text-align: center;
         text-wrap: balance;
@@ -216,7 +216,7 @@ input[type="checkbox"] {
     }
     
     .card-others {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .banish {

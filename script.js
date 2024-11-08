@@ -53,9 +53,11 @@ function addBookToLibrary(book){
 
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
 const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'true');
+const murray = new Book('Tuesdays with Murray', 'D. L. Moody', '200 pages', 'true');
 console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
+addBookToLibrary(murray);
 
 for(let i = 0; i < myLibrary.length; i++){
     console.log(myLibrary[i]);
