@@ -212,7 +212,8 @@ input[type="checkbox"] {
         text-align: center;
         text-wrap: balance;
         height: 60%;
-        line-height: 70px;
+        line-height: 50px;
+        
     }
     
     .card-others {
