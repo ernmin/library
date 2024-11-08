@@ -96,8 +96,9 @@ function createCard(bookObject, book_id) {
     div2.classList.add('card-others');
     
     document.getElementById('books').appendChild(card);
-    deleteBook(book_id);
+    deleteBookButton(book_id);
     addCheckbox(book_id);
+    deleteBook(book_id);
 }
 
 function addCheckbox(book_id){
@@ -115,13 +116,24 @@ function addCheckbox(book_id){
     conquered_container.classList.add('conquered-container');
 }
 
-function deleteBook(book_id){
+function deleteBookButton(book_id){
     const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
     const card_read = card.querySelector('.card-read');
     const create_button = document.createElement('button');
     create_button.classList.add('banish');
     create_button.textContent = 'Banish';
     card_read.appendChild(create_button);
+}
+
+function deleteBook(book_id){
+    let deleteBook = document.querySelectorAll('.banish');
+    deleteBook[book_id].id = book_id + '-book';
+    let deleteButton = document.querySelector("[id=" +CSS.escape(book_id) + "-book" + "]")
+    deleteButton.addEventListener('click', function(){
+        let books = document.querySelector('.books');
+        let bookToDelete = document.querySelector(`[id=${CSS.escape(book_id)}]`)
+        books.removeChild(bookToDelete);
+    })
 }
 
 /*create event listener to listen to submit button
