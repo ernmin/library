@@ -53,7 +53,7 @@ function addBookToLibrary(book){
 
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
 const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'true');
-const murray = new Book('Tuesdays with Murray', 'D. L. Moody', '200 pages', 'true');
+const murray = new Book('Tuesdays with Murray', 'D. L. Moody', '200 pages', 'false');
 console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
@@ -101,6 +101,7 @@ function createCard(bookObject, book_id) {
     deleteBookButton(book_id);
     addCheckbox(bookObject, book_id);
     deleteBook(book_id);
+    updateCheckbox(bookObject, book_id);
 }
 
 function addCheckbox(bookObject, book_id){
@@ -108,7 +109,6 @@ function addCheckbox(bookObject, book_id){
     const card_read = card.querySelector('.card-read');
     const conquered_container = document.createElement('div');
     const create_text_read = document.createElement('div');
-    /*create_text_read.classList.add('create-text-read');*/
     conquered_container.appendChild(document.createTextNode('Conquered'));
     card_read.appendChild(create_text_read);
     const create_check_box = document.createElement("INPUT");
@@ -122,9 +122,19 @@ function addCheckbox(bookObject, book_id){
     }
 }
 
-function updateCheckbox(book_id){
-    const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
-
+function updateCheckbox(bookObject, book_id){
+    let checkbox = document.querySelector("[id=" +CSS.escape(book_id) + "-conquered" + "]");
+    checkbox.addEventListener('change', function(){
+        if (this.checked){
+            bookObject.read = 'true';
+            /*console.log(bookObject.title, bookObject.read, bookObject);*/
+        }
+        else {
+            bookObject.read = 'false';
+            /*console.log(bookObject.title, bookObject.read, bookObject);*/
+        }
+    })
+    /*console.log(bookObject.title, bookObject.read);*/
 }
 
 function deleteBookButton(book_id){
