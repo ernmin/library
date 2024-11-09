@@ -99,11 +99,11 @@ function createCard(bookObject, book_id) {
     
     document.getElementById('books').appendChild(card);
     deleteBookButton(book_id);
-    addCheckbox(book_id);
+    addCheckbox(bookObject, book_id);
     deleteBook(book_id);
 }
 
-function addCheckbox(book_id){
+function addCheckbox(bookObject, book_id){
     const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
     const card_read = card.querySelector('.card-read');
     const conquered_container = document.createElement('div');
@@ -116,6 +116,15 @@ function addCheckbox(book_id){
     conquered_container.appendChild(create_check_box);
     card_read.appendChild(conquered_container);
     conquered_container.classList.add('conquered-container');
+    create_check_box.id = book_id + '-conquered';
+    if (bookObject.read == 'true') {
+        document.querySelector("[id=" +CSS.escape(book_id) + "-conquered" + "]").checked = true;
+    }
+}
+
+function updateCheckbox(book_id){
+    const card = document.querySelector(`[id=${CSS.escape(book_id)}]`);
+
 }
 
 function deleteBookButton(book_id){
