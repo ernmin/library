@@ -51,6 +51,18 @@ function addBookToLibrary(book){
     myLibrary.push(newBook);
 }
 
+function addBookToLibraryForm(){
+    document.querySelector('#newbookform').addEventListener("submit", function(event){
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const formObject = Object.fromEntries(formData.entries());
+        console.log(formObject);
+    })
+}
+
+
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
 const chess = new Book('How to Win at Chess', 'Levy Rozman', '300 pages', 'true');
 const murray = new Book('Tuesdays with Murray', 'D. L. Moody', '200 pages', 'false');
@@ -59,6 +71,8 @@ addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
 addBookToLibrary(murray);
 displayCard();
+
+addBookToLibraryForm();
 
 
 function displayCard() {
