@@ -58,11 +58,16 @@ console.log(theHobbit.info());
 addBookToLibrary(theHobbit);
 addBookToLibrary(chess);
 addBookToLibrary(murray);
+displayCard();
 
-for(let i = 0; i < myLibrary.length; i++){
+
+function displayCard() {
+    for(let i = 0; i < myLibrary.length; i++){
     console.log(myLibrary[i]);
     createCard(myLibrary[i], i);
+    }
 }
+
 
 function createCard(bookObject, book_id) {
     const card = document.createElement('div');
@@ -151,11 +156,28 @@ function deleteBook(book_id){
     deleteBook[book_id].id = book_id + '-book';
     let deleteButton = document.querySelector("[id=" +CSS.escape(book_id) + "-book" + "]")
     deleteButton.addEventListener('click', function(){
-        let books = document.querySelector('.books');
+        /*let books = document.querySelector('.books');
         let bookToDelete = document.querySelector(`[id=${CSS.escape(book_id)}]`)
-        books.removeChild(bookToDelete);
+        books.removeChild(bookToDelete);*/
+        deleteAllBooksDisplay();
+        if(book_id == 0){
+            myLibrary.shift();
+        }
+        else{
+            myLibrary.splice(book_id, book_id);
+        }
+        displayCard();
     })
 }
+
+function deleteAllBooksDisplay(){
+    let books = document.querySelector('.books');
+    let allbooks = document.querySelectorAll('.book-card');
+    for(let i = 0; i < myLibrary.length; i++){
+        books.removeChild(allbooks[i]);
+    }
+}
+
 
 /*create event listener to listen to submit button
 store form data into the array of objects*/
@@ -164,3 +186,5 @@ store form data into the array of objects*/
 https://bito.ai/resources/javascript-set-checkbox-checked-javascript-explained/
 Use book ID to change if read or not read
 */
+
+/*Form data to javascript object*/
