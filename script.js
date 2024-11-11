@@ -59,8 +59,22 @@ function addBookToLibraryForm(){
         const formData = new FormData(form);
         const formObject = Object.fromEntries(formData.entries());
         console.log(formObject);
+        let newbook = null;
+        if(formObject.read == 'true'){
+            newbook = new Book(formObject.title, formObject.author, formObject.pages + ' pages', formObject.read);
+            console.log(newbook);
+        }
+        else{
+            newbook = new Book(formObject.title, formObject.author, formObject.pages + ' pages', 'false');
+            console.log(newbook);
+        }
+        addBookToLibrary(newbook);
+        createCard(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
+        
     })
 }
+/*what about invalid form data?*/
+/*close modal on clicking submit*/
 
 
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
