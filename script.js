@@ -69,12 +69,15 @@ function addBookToLibraryForm(){
             console.log(newbook);
         }
         addBookToLibrary(newbook);
+        document.querySelector('#newbookform').reset();
+        let popup = document.querySelector('#pop-up');
+        popup.classList.remove('bg-active');
+        let overlaybg = document.querySelector('#overlay-bg');
+        overlaybg.classList.remove('bg-active');
         createCard(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
         
     })
 }
-/*what about invalid form data?*/
-/*close modal on clicking submit*/
 
 
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', '100 pages', 'true');
